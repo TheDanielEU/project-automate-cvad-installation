@@ -1,0 +1,41 @@
+{
+    "AppInstallers": {
+        "packagenameXenDesktop": "XenDesktopServerSetup"
+    },
+    "UnattendedArguments": {
+        "unattendedargsDirector": "/components DESKTOPDIRECTOR /passive /noreboot /configure_firewall",
+        "unattendedargsLicenseServer": "/xenapp /components LICENSESERVER /passive /noreboot /nosql /configure_firewall",
+        "unattendedargsConStudio": "/xenapp /components CONTROLLER,DESKTOPSTUDIO /passive /disableexperiencemetrics /noreboot /nosql /configure_firewall"
+    },
+    "Common": {
+        "DomainName": "domain.local",
+        "DomainDN": "DOMAIN",
+        "InstallShare": "\\\\FQDN\\TO\\INSTALLSHARE"
+    },
+    "XenDesktop": {
+        "DatabaseServer": "FQDN_of_SQL_Server",
+        "DatabaseName_Site": "CitrixSite",
+        "DatabaseName_Logging": "CitrixLogging",
+        "DatabaseName_Monitor": "CitrixMonitor",
+        "DatabaseUser": "domain.local\\serviceaccount",
+        "DatabasePassword": "ServiceaccountPassword",
+        "XDSite": "CitrixSiteName",
+        "LicenseServer": "CitrixLicenseServer",
+        "LicenseServer_LicensingModel": "LicenseModel e.g. UserDevice",
+        "LicenseServer_ProductCode": "License Product Code e.g. XDT",
+        "LicenseServer_ProductEdition": "License Edition e.g. PLT",
+        "LicenseServer_Port": "LicenseServerPort e.g. 27000",
+        "LicenseServer_ProductVersion": "License Product Version e.g. 7.41 for XenDesktop 2402",
+        "LicenseServer_AddressType": "LicenseServerAddressType e.g. WSL",
+        "SiteAdmin_DomainAdmin": "domain.local\\Domain Admins",
+        "SiteAdmin_ReadOnly": "domain.local\\ReadOnlyAdminGroup",
+        "SiteAdmin_HelpDesk": "domain.local\\HelpDeskAdminGroup",
+        "SiteAdmin_DeliveryGroup": "domain.local\\DeliveryGroupAdminGroup",
+        "SiteScope": "All",
+        "SiteRoleFullAdmin": "Full Administrator",
+        "SiteRoleReadOnlyAdmin": "Read Only Administrator",
+        "SiteRoleHelpDeskAdmin": "Help Desk Administrator",
+        "SiteRoleDeliveryGroupAdmin": "Delivery Group Administrator",
+        "SiteControllerAddress": "FQDN of Controller #1"
+    }
+}
