@@ -5,12 +5,14 @@
     "UnattendedArguments": {
         "unattendedargsDirector": "/components DESKTOPDIRECTOR /passive /noreboot /configure_firewall",
         "unattendedargsLicenseServer": "/xenapp /components LICENSESERVER /passive /noreboot /nosql /configure_firewall",
-        "unattendedargsConStudio": "/xenapp /components CONTROLLER,DESKTOPSTUDIO /passive /disableexperiencemetrics /noreboot /nosql /configure_firewall"
+        "unattendedargsConStudio": "/xenapp /components CONTROLLER,DESKTOPSTUDIO /passive /disableexperiencemetrics /noreboot /nosql /configure_firewall",
+        "unattendedargsConStudioLicDir": "/xenapp /components CONTROLLER,DESKTOPSTUDIO,LICENSESERVER,DESKTOPDIRECTOR /passive /noreboot /nosql /configure_firewall"
     },
     "Common": {
         "DomainName": "domain.local",
         "DomainDN": "DOMAIN",
-        "InstallShare": "\\\\FQDN\\TO\\INSTALLSHARE"
+        "InstallShare": "\\\\FQDN\\TO\\INSTALLSHARE",
+        "DeliveryControllers": ["DDC#1","DDC#2"]
     },
     "XenDesktop": {
         "DatabaseServer": "FQDN_of_SQL_Server",
@@ -27,10 +29,10 @@
         "LicenseServer_Port": "LicenseServerPort e.g. 27000",
         "LicenseServer_ProductVersion": "License Product Version e.g. 7.41 for XenDesktop 2402",
         "LicenseServer_AddressType": "LicenseServerAddressType e.g. WSL",
-        "SiteAdmin_DomainAdmin": "domain.local\\Domain Admins",
-        "SiteAdmin_ReadOnly": "domain.local\\ReadOnlyAdminGroup",
-        "SiteAdmin_HelpDesk": "domain.local\\HelpDeskAdminGroup",
-        "SiteAdmin_DeliveryGroup": "domain.local\\DeliveryGroupAdminGroup",
+        "SiteAdminFullAdminGroup": "domain.local\\FullAdminGroup",
+        "SiteAdminReadOnly": "domain.local\\ReadOnlyAdminGroup",
+        "SiteAdminHelpDesk": "domain.local\\HelpDeskAdminGroup",
+        "SiteAdminDeliveryGroup": "domain.local\\DeliveryGroupAdminGroup",
         "SiteScope": "All",
         "SiteRoleFullAdmin": "Full Administrator",
         "SiteRoleReadOnlyAdmin": "Read Only Administrator",

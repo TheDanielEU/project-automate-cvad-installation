@@ -24,7 +24,7 @@ None.
     - The script uses the Citrix PowerShell cmdlets to add an administrator to a CVAD site.
 
 .LINK
-    https://github.com/TheDanielEU/project-automate-cvad-installation/Installscripts/XenDesktop/AddadminToCVADSite.ps1
+    https://github.com/TheDanielEU/project-automate-cvad-installation/XenDesktop/AddadminToCVADSite.ps1
 #>
 
 $logPS = "C:\Windows\Temp\AddAdminToCVADSite.log"
@@ -34,7 +34,7 @@ $env:SEE_MASK_NOZONECHECKS = 1
 Write-Verbose "Reading JSON Configuration file"
 $ConVarJson = Get-Content -Raw .\ConfigurationVariables.json | ConvertFrom-Json
 
-$siteadminDomainAdmins = $ConVarJson.XenDesktop.SiteAdmin_DomainAdmin
+$siteFULLadministrator = $ConVarJson.XenDesktop.SiteAdminFullAdminGroup
 $siteroleFullAdmin = $ConVarJson.XenDesktop.SiteRoleFullAdmin
 $siteScope = $ConVarJson.XenDesktop.SiteScope
 
@@ -43,8 +43,8 @@ Start-Transcript $LogPS
 
 Add-PSSnapin Citrix.*
 
-New-AdminAdministrator -AdminAddress $env:COMPUTERNAME -Name "$siteadminDomainAdmins"
-Add-AdminRight -Administrator "$siteadminDomainAdmins" -Role "$siteroleFullAdmin" -Scope "$siteScope"
+New-AdminAdministrator -AdminAddress $env:COMPUTERNAME -Name "$siteFULLadministrator"
+Add-AdminRight -Administrator "$siteFULLadministrator" -Role "$siteroleFullAdmin" -Scope "$siteScope"
 
 Write-Verbose "Stop logging" -Verbose
 

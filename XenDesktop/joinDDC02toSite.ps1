@@ -3,7 +3,7 @@
 Join XenDesktop 2 to Site.
 
 .DESCRIPTION
-This script is used to join a secondary Delivery Controller to a XenDesktop Site.
+This script adds a secondary Delivery Controller to an existing XenDesktop Site.
 
 .PARAMETER None
 

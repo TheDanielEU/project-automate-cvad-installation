@@ -23,16 +23,16 @@ None
     - The script configures Citrix Director with the specified Storefront servers and disables SSL check for the Director UI.
 
 .LINK
-    https://github.com/TheDanielEU/project-automate-cvad-installation/Installscripts/XenDesktop/ConfigureDirector.ps1
+    https://github.com/TheDanielEU/project-automate-cvad-installation/XenDesktop/ConfigureDirector.ps1
 #>
 Write-Verbose "Reading JSON Configuration file"
 $ConVarJson = Get-Content -Raw .\ConfigurationVariables.json | ConvertFrom-Json
 
-$Servers = $ConVarJson.Storefront.Servers
+$Servers = $ConVarJson.Common.DeliveryControllers
 
 C:\inetpub\wwwroot\Director\tools\DirectorConfig.exe /ddc "$Servers"
 
 $xml = [xml](Get-Content "C:\inetpub\wwwroot\Director\web.config")
 $node = $xml.configuration.appSettings.add | Where-Object {$_.Key -eq 'UI.EnableSslCheck'}
-$node.value = "false"   # Change an existing value
+$node.value = "false"
 $xml.Save("C:\inetpub\wwwroot\Director\web.config")

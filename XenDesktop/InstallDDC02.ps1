@@ -23,7 +23,7 @@ None
     - The script restarts the computer after installation.
 
 .LINK
-    https://github.com/TheDanielEU/project-automate-cvad-installation/Installscripts/XenDesktop/InstallDDC02.ps1
+    https://github.com/TheDanielEU/project-automate-cvad-installation/XenDesktop/InstallDDC02.ps1
 #>
 $Vendor = "Citrix"
 $Product = "XenDesktop"

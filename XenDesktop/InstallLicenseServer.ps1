@@ -22,7 +22,7 @@ None
     - The script logs the installation process to a log file located in the system's temporary directory.
 
 .LINK
-    https://github.com/TheDanielEU/project-automate-cvad-installation/Installscripts/XenDesktop/InstallLicenseServer.ps1
+    https://github.com/TheDanielEU/project-automate-cvad-installation/XenDesktop/InstallLicenseServer.ps1
 #>
 $Vendor = "Citrix"
 $Product = "XenDesktop"
@@ -37,6 +37,8 @@ $InstallShare = $ConVarJson.Common.InstallShare
 # ----- DO NOT EDIT BELOW THIS LINE -----
 
 Write-Verbose "Setting Arguments" -Verbose
+
+$env:SEE_MASK_NOZONECHECKS = 1
 
 $StartDTM = (Get-Date)
 
@@ -64,4 +66,8 @@ Write-Verbose "Elapsed Time: $(($EndDTM-$StartDTM).TotalSeconds) Seconds" -Verbo
 
 Write-Verbose "Elapsed Time: $(($EndDTM-$StartDTM).TotalMinutes) Minutes" -Verbose
 
+Remove-Item env:\SEE_MASK_NOZONECHECKS
+
 Stop-Transcript
+
+Restart-Computer -Force
