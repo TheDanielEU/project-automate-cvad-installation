@@ -1,12 +1,28 @@
 {
     "AppInstallers": {
-        "packagenameXenDesktop": "XenDesktopServerSetup"
+        "packagenameVDA": "XenDesktopVDASetup",
+        "packagenameRedist_x64": "VC_redist.x64",
+        "packagenameRedist_x86": "VC_redist.x86",
+        "packagenamemsOLEdbDriver": "msoledbsql",
+        "packagenamemsEDGEwebvwr2": "MicrosoftEdgeWebView2RuntimeInstallerX64",
+        "packagenameCDF_x64": "cdf_x64",
+        "packagenameTelemetry": "TelemetryServiceInstaller_x64",
+        "packagenameCitrixPoshSDK": "CitrixPoshSdk",
+        "packagenamePVSConsole": "PVS_Console_x64",
+        "packagenamePVSServer": "PVS_Server_x64",
+        "packagenamePVSTargetDevice": "PVS_Device_x64"
     },
     "UnattendedArguments": {
         "unattendedargsDirector": "/components DESKTOPDIRECTOR /passive /noreboot /configure_firewall",
         "unattendedargsLicenseServer": "/xenapp /components LICENSESERVER /passive /noreboot /nosql /configure_firewall",
         "unattendedargsConStudio": "/xenapp /components CONTROLLER,DESKTOPSTUDIO /passive /disableexperiencemetrics /noreboot /nosql /configure_firewall",
-        "unattendedargsConStudioLicDir": "/xenapp /components CONTROLLER,DESKTOPSTUDIO,LICENSESERVER,DESKTOPDIRECTOR /passive /noreboot /nosql /configure_firewall"
+        "unattendedargsConStudioLicDir": "/xenapp /components CONTROLLER,DESKTOPSTUDIO,LICENSESERVER,DESKTOPDIRECTOR /passive /noreboot /nosql /configure_firewall",
+        "unattendedargsEXE": "/s /v\"/qn\"" ,
+        "unattendedargsmsOLEdbDriver": "/qb ADDLOCAL=ALL IACCEPTMSOLEDBSQLLICENSETERMS=YES",
+        "unattendedargsmsEDGEwebvwr2": "/silent /install",
+        "unattendedargsCDF_x64": "/qb",
+        "unattendedargsTelemetry": "/qb",
+        "unattendedargsCitrixPoshSDK": "/silent"
     },
     "Common": {
         "DomainName": "domain.local",
@@ -39,5 +55,22 @@
         "SiteRoleHelpDeskAdmin": "Help Desk Administrator",
         "SiteRoleDeliveryGroupAdmin": "Delivery Group Administrator",
         "SiteControllerAddress": "FQDN of Controller #1"
+    },
+    "PVS": {
+        "PVSAdminGroup": "domain.local\\PVSAdminGroup",
+        "PVSDBName": "PVSDBName",
+        "PVSSiteName": "PVSSiteName",
+        "PVSFarmName": "PVSFarmName",
+        "PVSCollectionName": "PVSDeviceCollectionName",
+        "DBScriptFilePath": "C:\\",
+        "DBScriptFile": "DBScript.sql",
+        "SQLServerName": "PVSServerName",
+        "SQLDBScriptRemotePath": "\\\\EDIT\\C$",
+        "PVSConfigWizardPrimaryFile": "Z:\\PVS\\ConfigWizard_Primary.ans",
+        "PVSConfigWizardSecondaryFile": "Z:\\PVS\\ConfigWizard_Secondary.ans",
+        "PVSConfigWizardPath": "C:\\ProgramData\\Citrix\\Provisioning Services\\",
+        "PVSConfigWizardLog": "$Env:SystemRoot\\Temp\\ConfigWizard.log",
+        "PVSPassphrase": "PVSPassphrase",
+        "vDisk": "Local_path_to_vDisks"
     }
 }
